@@ -224,6 +224,7 @@ class SantoriniSearchNode:
             return 3  # Mid-game
         else:
             return 4  # End-game (fewer moves, can search deeper)
+        # return 4
 
     def generate_children(self):
         moves = self.board.get_possible_moves(self.player)
@@ -520,7 +521,7 @@ class SantoriniGUI:
             self.update_status("You can only move to adjacent spaces.")
             return
 
-        # **NEW FIX: Check if worker has at least one valid build spot after moving**
+        #Check if worker has at least one valid build spot after moving**
         temp_board = self.board.copy()  # Create a copy
         temp_board.grid[wy][wx][1] = 0  # Remove worker from old position
         temp_board.grid[y][x][1] = self.human_player  # Place worker at new position
